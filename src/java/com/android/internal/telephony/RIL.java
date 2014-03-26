@@ -3478,9 +3478,11 @@ public class RIL extends BaseCommands implements CommandsInterface {
     protected Object
     responseStrings(Parcel p) {
         int num;
-        String response[];
+        String temp[];
 
-        response = p.readStringArray();
+        temp = p.readStringArray();
+
+	String response[] = NetworkOperators.operatorReplaces(temp);
 
         return response;
     }
